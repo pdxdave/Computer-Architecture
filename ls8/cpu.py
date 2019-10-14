@@ -45,7 +45,7 @@ class CPU:
 
 
     def alu(self, op, reg_a, reg_b):
-        """ALU operations. Arithmetic Logic Unit.  OK, addition, subraction, multiplcation goes here """
+        """ALU operations. Arithmetic Logic Unit.  OK, addition, subtraction, multiplication goes here """
 
         if op == "ADD":
             self.reg[reg_a] += self.reg[reg_b]
@@ -82,8 +82,8 @@ class CPU:
         HLT = 0b00000001             """ Halt the CPU (and exit the emulator)."""
         LDI = 0b10000010             """ Set the value of a register to an integer."""
         PRN = 0b1000111              """ Print numeric value stored in the given register."""
-        PUSH = 0b01000101            """ Push the value in the given register on the stack."""
-        POP = 0b01000110             """ Pop the value at the top of the stack into the given register."""
+        PUSH = 0b01000101            """ Push the value in the given register on the stack. Think I'll need a method for this"""
+        POP = 0b01000110             """ Pop the value at the top of the stack into the given register. Think I'll need a method for this"""
         CALL = 0b01010000            """ Calls a subroutine (function) at the address stored in the register. """
         RET = 0b00010001             """ Return from subroutine. """
         MUL = 0b10100010             """ Multiply the values in two registers together and store the result in registerA. """
