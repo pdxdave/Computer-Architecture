@@ -1,5 +1,5 @@
 """CPU functionality."""
- # Round Two on this assignment.  Make it easier
+# Round Two on this assignment.  Make it easier
 
 import sys
 import re
@@ -93,6 +93,7 @@ class CPU:
         MUL  = 0b10100010
         CALL = 0b01010000
         RET  = 0b00010001  
+        ADD  = 0b10100000
 
         running = True
         while running:
@@ -113,6 +114,9 @@ class CPU:
             elif IR == PRN:
                 print(self.reg[operand_a])
                 self.pc += 2
+            elif IR == ADD:
+                self.alu("ADD", operand_a, operand_b)
+                self.pc += 3
             elif IR == MUL:
                 self.alu("MUL", operand_a, operand_b)
                 self.pc += 3
@@ -124,10 +128,15 @@ class CPU:
                 self.reg[operand_a] = self.ram[self.SP]
                 self.SP += 1
                 self.pc += 2
-            elif IR == CALL:
-
-               
-                
+            elif IR == CALL: 
+                return_address = self.pc + 2
+                self.reg[self.SP] -= 1
+                self.ram[self.reg[self.SP]] = return_address
+                self.pc = self.reg[operand_a]
+            elif IR == RET: 
+                return_address = self.ram[self.reg[self.SP]]
+                self.reg[self.SP] += 1
+                self.pc = return_address
             else:
                 print("Halting the program")
                 running = False
