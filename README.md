@@ -23,6 +23,39 @@
       passed in as an argument
 - [ ] Implement a Multiply instruction (run `mult8.ls8`)
 
+
+
+
+Objective challenge:
+How would you perform an NOR operation between two numbers x and y if you didn’t have an NOR operator? How could you use the other bitwise operators to the same effect?
+
+How would you perform an XOR operation between two numbers x and y if you didn’t have an XOR operator? How could you use the other bitwise operators to the same effect?
+
+What is the result of 11011111 NOR 00010111?
+
+```
+  spaced for easier reading.
+
+  1 1 0 1 1 1 1 1
+  0 0 0 1 0 1 1 1
+  ---------------
+
+```
+
+What is the result of 10101010 XOR 11110000?
+```
+  spaced for easier reading.  
+  XOR is only true if one or the other is true, not both.
+
+  1 0 1 0 1 0 1 0
+^ 1 1 1 1 0 0 0 0
+  ---------------
+  0 1 0 1 1 0 1 0
+```
+
+
+What is the result of 11011 AND 101?
+
 ### Day 3: Stack
 
 - [ ] Implement the System Stack and be able to run the `stack.ls8` program
